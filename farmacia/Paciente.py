@@ -1,11 +1,13 @@
 import Receita
 
 class Paciente:
-    def __init__(self, receita: Receita, documento):
-        self.receita = receita
-        self.documento = documento
+    def __init__(self, nome: str, cpf: str, idade: int):
+        self.nome = nome
+        self.cpf = cpf
+        self.idade = idade
 
-
-
-        dados_paciente = dict(nome=documento["nome"],
-                              cpf=documento["cpf"])
+    def __eq__(self, other) -> bool:
+        if self.nome == other.nome and self.cpf == other.cpf:
+            return True
+        else:
+            return False
